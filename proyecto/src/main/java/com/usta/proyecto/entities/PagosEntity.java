@@ -16,17 +16,21 @@ public class PagosEntity implements Serializable {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name = "idPago")
 private Long idPago;
-@JoinColumn(name = "idRegistro")
-@OneToOne(cascade = CascadeType.REMOVE,optional = true)
+@JoinColumn(name = "idRegistro",referencedColumnName = "idRegistro")
+@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
 private RegistrosEntity idRegistro;
 
 @NotNull
 @Column(name = "PagoAlDia")   //si es false que lo mande a la tabla de deudores//
 private Boolean PagoAlDia;
 
-@JoinColumn(name = "idDetalles")
-@OneToOne(cascade = CascadeType.REMOVE,optional = true)
+@JoinColumn(name = "idDetalles",referencedColumnName = "idDetalles")
+@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
     private DetallesEntity idDetalles;
+
+@NotNull
+@Column(name = "estado")
+private Boolean estado;
 
 
     public Long getIdPago() {
@@ -43,5 +47,29 @@ private Boolean PagoAlDia;
 
     public void setPagoAlDia(Boolean pagoAlDia) {
         PagoAlDia = pagoAlDia;
+    }
+
+    public RegistrosEntity getIdRegistro() {
+        return idRegistro;
+    }
+
+    public void setIdRegistro(RegistrosEntity idRegistro) {
+        this.idRegistro = idRegistro;
+    }
+
+    public DetallesEntity getIdDetalles() {
+        return idDetalles;
+    }
+
+    public void setIdDetalles(DetallesEntity idDetalles) {
+        this.idDetalles = idDetalles;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 }

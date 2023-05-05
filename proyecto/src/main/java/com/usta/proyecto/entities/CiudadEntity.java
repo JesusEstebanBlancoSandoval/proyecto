@@ -18,10 +18,15 @@ public class CiudadEntity implements Serializable {
 
 
 
+
     @NotNull
     @Size(min = 5 , max = 30)
     @Column(name = "Nombre")
     private String Nombre;
+
+    @NotNull
+    @Column(name = "estado")
+    private Boolean estado;
 
     public Long getIdCiudades() {
         return idCiudades;
@@ -39,6 +44,13 @@ public class CiudadEntity implements Serializable {
         Nombre = nombre;
     }
 
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
 
     @OneToOne (mappedBy = "idCiudad")
     private EmpresasEntity idEmpresa;

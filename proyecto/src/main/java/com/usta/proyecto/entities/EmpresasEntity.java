@@ -24,9 +24,21 @@ private Long idEmpresa;
 @Column(name = "Nombre")
 private String Nombre;
 
-@JoinColumn(name = "idCiudad")
-@OneToOne(cascade = CascadeType.REMOVE,optional = true)
-private PersonasEntity idCiudad;
+    @NotNull
+    @Size(min = 1,max= 13)
+    @Column(name = "nit",unique = true)
+    private String nit;
+
+    @NotNull
+    @Column(name = "estado")
+    private Boolean estado;
+
+
+
+
+    @JoinColumn(name = "idciudad", referencedColumnName = "idciudad")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, optional = true)
+    private CiudadEntity  idciudad;
 
     @OneToOne (mappedBy = "idEmpresa")
     private PersonasEntity idPersona;
@@ -45,5 +57,29 @@ private PersonasEntity idCiudad;
 
     public void setNombre(String nombre) {
         Nombre = nombre;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public CiudadEntity getIdciudad() {
+        return idciudad;
+    }
+
+    public void setIdciudad(CiudadEntity idciudad) {
+        this.idciudad = idciudad;
     }
 }

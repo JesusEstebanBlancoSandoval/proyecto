@@ -38,9 +38,10 @@ private Integer Cedula;
 @Column(name = "Funcionario")
 private Boolean Funcionario;
 
-@JoinColumn(name = "idRegistro")
-@OneToOne(cascade = CascadeType.REMOVE,optional = true)
-private RegistrosEntity IdRegistro;
+
+@JoinColumn(name= "idRegistro",referencedColumnName = "idRegistro")
+@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, optional = true)
+private RegistrosEntity idregistro;
 
 @NotNull
 @Column(name = "Estrato")
@@ -50,12 +51,14 @@ private Integer Estrato;
 @Column(name = "PuntosDeAgua")
 private Integer PuntosDeAgua;
 
-    @JoinColumn(name = "idTelefono")
-    @OneToOne(cascade = CascadeType.REMOVE,optional = true)
-    private TelefonoEntity IdTelefono;
 
-    @JoinColumn(name = "idEmpresa")
-    @OneToOne(cascade = CascadeType.REMOVE,optional = true)
+    @JoinColumn(name= "idTelefono",referencedColumnName = "idTelefono")
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, optional = true)
+    private TelefonoEntity idTelefono;
+
+
+    @JoinColumn(name = "idEmpresa",referencedColumnName = "idEmpresa")
+    @OneToOne( fetch = FetchType.LAZY ,cascade = CascadeType.REMOVE,optional = true)
     private EmpresasEntity IdEmpresa;
 
 
@@ -114,5 +117,53 @@ private Boolean Estado;
 
     public void setEstado(Boolean estado) {
         Estado = estado;
+    }
+
+    public Integer getCedula() {
+        return Cedula;
+    }
+
+    public void setCedula(Integer cedula) {
+        Cedula = cedula;
+    }
+
+    public Boolean getFuncionario() {
+        return Funcionario;
+    }
+
+    public void setFuncionario(Boolean funcionario) {
+        Funcionario = funcionario;
+    }
+
+    public RegistrosEntity getIdregistro() {
+        return idregistro;
+    }
+
+    public void setIdregistro(RegistrosEntity idregistro) {
+        this.idregistro = idregistro;
+    }
+
+    public TelefonoEntity getIdTelefono() {
+        return idTelefono;
+    }
+
+    public void setIdTelefono(TelefonoEntity idTelefono) {
+        this.idTelefono = idTelefono;
+    }
+
+    public EmpresasEntity getIdEmpresa() {
+        return IdEmpresa;
+    }
+
+    public void setIdEmpresa(EmpresasEntity idEmpresa) {
+        IdEmpresa = idEmpresa;
+    }
+
+    public RegistrosEntity getIdRegistro() {
+        return idRegistro;
+    }
+
+    public void setIdRegistro(RegistrosEntity idRegistro) {
+        this.idRegistro = idRegistro;
     }
 }

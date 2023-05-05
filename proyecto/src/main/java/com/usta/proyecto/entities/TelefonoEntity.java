@@ -58,6 +58,14 @@ public class TelefonoEntity implements Serializable {
     public void setNumero(Integer numero) {
         Numero = numero;
     }
+
+    public Boolean getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        Estado = estado;
+    }
 }
 
 

@@ -56,8 +56,8 @@ public class RegistrosEntity  implements Serializable {
 
 
     //espacio para conexion con otro entity//
-    @JoinColumn(name = "idPersona")
-    @OneToOne(cascade = CascadeType.REMOVE,optional = true)
+    @JoinColumn(name = "idPersona" , referencedColumnName = "idPersona")
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
     private PersonasEntity idPersona;
 
 
@@ -123,5 +123,13 @@ public class RegistrosEntity  implements Serializable {
 
     public void setEstado(Boolean estado) {
         Estado = estado;
+    }
+
+    public PersonasEntity getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(PersonasEntity idPersona) {
+        this.idPersona = idPersona;
     }
 }
