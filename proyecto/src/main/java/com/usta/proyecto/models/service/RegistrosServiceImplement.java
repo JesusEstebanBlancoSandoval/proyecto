@@ -1,6 +1,6 @@
 package com.usta.proyecto.models.service;
 
-import com.usta.proyecto.dao.RegistrosDAO;
+import com.usta.proyecto.models.dao.RegistrosDAO;
 import com.usta.proyecto.entities.RegistrosEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -33,15 +33,10 @@ private String Nombre;
     @Column(name = "estado")
     private Boolean estado;
 
-
-
-
-    @JoinColumn(name = "idciudad", referencedColumnName = "idciudad")
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, optional = true)
-    private CiudadEntity  idciudad;
-
-    @OneToOne (mappedBy = "idEmpresa")
-    private PersonasEntity idPersona;
+    @NotNull
+    @JoinColumn(name = "idciudad", referencedColumnName = "idCiudades")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CiudadEntity idciudad;
 
     public Long getIdEmpresa() {
         return idEmpresa;

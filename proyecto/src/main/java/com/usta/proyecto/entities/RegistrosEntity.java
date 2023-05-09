@@ -64,8 +64,7 @@ public class RegistrosEntity  implements Serializable {
     @OneToOne (mappedBy = "idRegistro")  //comparte el id registro a la tabla pagos//
     private PagosEntity idPago;
 
-    @OneToOne(mappedBy = "MedicionActual")  //este que mande la medicion actual a la medicion de pagos//
-    private PagosEntity medicion;
+
 
     //espacio para conexion con otro entity//
 

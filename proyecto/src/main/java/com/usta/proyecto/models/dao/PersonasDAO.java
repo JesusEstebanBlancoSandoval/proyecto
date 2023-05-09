@@ -1,4 +1,4 @@
-package com.usta.proyecto.dao;
+package com.usta.proyecto.models.dao;
 
 import com.usta.proyecto.entities.PersonasEntity;
 import org.springframework.data.jpa.repository.Modifying;

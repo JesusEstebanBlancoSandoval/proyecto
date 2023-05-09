@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head th:replace="layout/layout :: headGestorTablas"></head>
+
+    <body>
+        <nav class="navbar navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+              <a class="navbar-brand disabled" href="#">Home Watter Mettering Company - Pagos</a>
+            </div>
+        </nav>
+
+        <table th:replace="layout/tablas :: pagosTabla"></table>
+
+        <div th:replace="layout/tablas :: pagoCrear"></div>
+        <div th:replace="layout/tablas :: eliminar"></div>
+
+        <nav class="navbar navbar-dark bg-dark fixed-bottom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="true" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"></path>
+                    </svg>
+                </button>
+
+                <a class="navbar-brand" href="#"></a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <div class="elementos">
+                        <div class="tablas">
+                            <a class="detalles" href="detallesTabla.html">Detalles</a>
+                            <a class="personas" href="personasTabla.html">Personas</a>
+                            <a class="pagos" href="pagosTabla.html">Pagos</a>
+                            <a class="registro" href="registrosTabla.html">Registro</a>
+                        </div>
+                        <div class="editorTabla">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Crear</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Editar</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav> 
+    </body>
+</html>

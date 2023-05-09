@@ -1,6 +1,6 @@
 package com.usta.proyecto.models.service;
 
-import com.usta.proyecto.dao.PersonasDAO;
+import com.usta.proyecto.models.dao.PersonasDAO;
 import com.usta.proyecto.entities.PersonasEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

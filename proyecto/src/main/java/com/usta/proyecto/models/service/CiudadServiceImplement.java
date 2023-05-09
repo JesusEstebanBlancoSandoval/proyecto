@@ -1,6 +1,6 @@
 package com.usta.proyecto.models.service;
 
-import com.usta.proyecto.dao.CiudadDAO;
+import com.usta.proyecto.models.dao.CiudadDAO;
 import com.usta.proyecto.entities.CiudadEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

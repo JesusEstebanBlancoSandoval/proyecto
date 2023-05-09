@@ -23,8 +23,6 @@ public class DetallesEntity implements Serializable {
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
     private PagosEntity idpago;
 
-
-
     @NotNull
     @Column(name = "CostoAPagar")    //que contabilice la medicion y genere un costo a pagar ej:20000 por una medicion de 1000 mts^3//
     private Integer CostoAPagar;
