@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-    <head th:replace="layout/layout :: headGestorTablas"></head>
+    <head th:replace="layouts/layout :: headGestorTablas"></head>
 
     <body>
         <nav class="navbar navbar-dark bg-dark sticky-top">
@@ -10,7 +10,7 @@
             </div>
         </nav>
 
-        <table th:replace="layout/tablas :: detallesTabla"></table>
+        <table th:replace="layouts/tablas :: detallesTabla"></table>
 
         <nav class="navbar navbar-dark bg-dark fixed-bottom">
             <div class="container-fluid">

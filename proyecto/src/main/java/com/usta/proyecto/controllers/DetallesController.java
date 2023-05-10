@@ -24,12 +24,17 @@ public class DetallesController {
     @Autowired
     private IPagosService iPagosService;
 
+    @GetMapping("hola")
+    public String listarHola (Model model){
+        model.addAttribute("titulos","listado Detalles");
+        return "hola";
+    }
 
-    @GetMapping("listarDetalles")
+    @GetMapping("gestorTablas/detallesTabla")
     public String listarDetalles (Model model){
         model.addAttribute("Detalles",iDetallesService.findAll());
         model.addAttribute("titulos","listado Detalles");
-        return "listarDetalles";
+        return "gestorTablas/detallesTabla";
     }
 
     @GetMapping("crearDetalles")
