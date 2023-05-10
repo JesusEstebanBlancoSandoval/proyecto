@@ -30,11 +30,11 @@ public class PersonaController {
     @Autowired
     private IEmpresasService iEmpresasService;
 
-    @GetMapping("listarPersonas")
+    @GetMapping("gestorTablas/personasTabla")
     public String ListarSeccionales (Model model){
         model.addAttribute("personas",iPersonasService.findAll());
         model.addAttribute("titulos","listado Personas");
-        return "listarPersonas";
+        return "gestorTablas/personasTabla";
     }
 
     @GetMapping("crearPersona")

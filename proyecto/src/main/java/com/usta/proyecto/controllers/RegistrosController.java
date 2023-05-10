@@ -22,11 +22,11 @@ public class RegistrosController {
 
 
 
-    @GetMapping("listarRegistros")
+    @GetMapping("gestorTablas/registrosTabla")
     public String listarRegistros(Model model){
         model.addAttribute("registros",iRegistrosService.findAll());
         model.addAttribute("titulos","Listado Registros");
-        return "listarRegistros";
+        return "gestorTablas/registrosTabla";
     }
 
     @GetMapping("crearRegistro")

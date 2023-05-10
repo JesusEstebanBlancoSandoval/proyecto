@@ -12,8 +12,8 @@
 
         <table th:replace="layouts/tablas :: pagosTabla"></table>
 
-        <div th:replace="layout/tablas :: pagoCrear"></div>
-        <div th:replace="layout/tablas :: eliminar"></div>
+        <div th:replace="layouts/tablas :: pagoCrear"></div>
+        <div th:replace="layouts/tablas :: eliminar"></div>
 
         <nav class="navbar navbar-dark bg-dark fixed-bottom">
             <div class="container-fluid">
@@ -28,10 +28,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <div class="elementos">
                         <div class="tablas">
-                            <a class="detalles" href="detallesTabla.html">Detalles</a>
-                            <a class="personas" href="personasTabla.html">Personas</a>
-                            <a class="pagos" href="pagosTabla.html">Pagos</a>
-                            <a class="registro" href="registrosTabla.html">Registro</a>
+                            <a class="detalles" href=detallesTabla>Detalles</a>
+                            <a class="personas" href=personasTabla>Personas</a>
+                            <a class="pagos" href=pagosTabla>Pagos</a>
+                            <a class="registro" href=registrosTabla>Registro</a>
                         </div>
                         <div class="editorTabla">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Crear</button>

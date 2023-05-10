@@ -25,11 +25,11 @@ public class PagosController {
     @Autowired
     private IRegistrosService iRegistrosService;
 
-    @GetMapping("listarPagos")
+    @GetMapping("gestorTablas/pagosTabla")
     public String listarPagos(Model model) {
         model.addAttribute("pagos", iPagosService.findAll());
         model.addAttribute("titulos", "listado Pagos");
-        return "listarPagos";
+        return "gestorTablas/pagosTabla";
     }
 
     @GetMapping("crearPagos")
