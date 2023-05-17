@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface PagosDAO extends CrudRepository<PagosEntity,Long> {
     @Transactional
     @Modifying
-    @Query("UPDATE PagosEntity SET estado = false WHERE idPago=?1")
+    @Query("UPDATE PagosEntity SET estado = false WHERE id_pago=?1")
     public void changeState(Long id);
 
 

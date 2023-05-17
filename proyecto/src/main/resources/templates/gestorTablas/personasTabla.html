@@ -10,7 +10,40 @@
             </div>
         </nav>
 
-        <table th:replace="layouts/tablas :: personasTabla"></table>
+        <table class="table table-ligth table-hover" th:fragment="personasTabla">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">idPersonas</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Funcionario</th>
+                <th scope="col">Estrato</th>
+                <th scope="col">Puntos de agua</th>
+                <th scope="col">idTelefono</th>
+                <th scope="col">idEmpresa</th>
+                <th scope="col">Estado</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr th:each="personas:${personasTabla}" th:if="${personas.estado} == true">
+                <td></td>
+                <td><input type="checkbox" th:text="${personas.id_persona}"></td>
+                <td th:text="${personas.nombre}"></td>
+                <td th:text="${personas.apellido}"></td>
+                <td th:text="${personas.cedula}"></td>
+                <td th:text="${personas.funcionario}"></td>
+                <td th:text="${personas.estrato}"></td>
+                <td th:text="${personas.puntosDeAgua}"></td>
+                <td th:text="${personas.id_telefono.id_telefono}"></td>
+                <td th:text="${personas.idEmpresa.idEmpresa}"></td>
+                <td th:text="${personas.estado}"></td>
+
+            </tr>
+
+            </tbody>
+        </table>
 
         <nav class="navbar navbar-dark bg-dark fixed-bottom">
             <div class="container-fluid">

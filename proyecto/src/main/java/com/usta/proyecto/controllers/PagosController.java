@@ -27,8 +27,7 @@ public class PagosController {
 
     @GetMapping("gestorTablas/pagosTabla")
     public String listarPagos(Model model) {
-        model.addAttribute("pagos", iPagosService.findAll());
-        model.addAttribute("titulos", "listado Pagos");
+        model.addAttribute("pagosTabla", iPagosService.findAll());
         return "gestorTablas/pagosTabla";
     }
 
@@ -36,7 +35,6 @@ public class PagosController {
     public String crearPagos(Model model) {
         model.addAttribute("titulo", "Crear Pago");
         model.addAttribute("pago", new PagosEntity());
-        model.addAttribute("detalles", iDetallesService.findAll());
         model.addAttribute("registros", iRegistrosService.findAll());
         return "crearPagos";
     }
@@ -68,7 +66,6 @@ public class PagosController {
             @PathVariable(value = "id") Long id, Model model) {
         model.addAttribute("titulo", "editar Pago");
         model.addAttribute("pago", iPagosService.findOne(id));
-        model.addAttribute("detalles", iDetallesService.findAll());
         model.addAttribute("registros", iRegistrosService.findAll());
         return "editarPagos";
     }
@@ -83,7 +80,6 @@ public class PagosController {
         pagoExistente.setEstado(true);
         pagoExistente.setIdRegistro(pagos.getIdRegistro());
         pagoExistente.setPagoAlDia(pagos.getPagoAlDia());
-        pagoExistente.setIdDetalles(pagos.getIdDetalles());
         iPagosService.updatePagos(pagoExistente);
         return "redirect:/listarPagos";
     }

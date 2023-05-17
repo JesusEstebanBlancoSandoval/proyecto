@@ -13,13 +13,13 @@ public interface PersonasDAO extends CrudRepository<PersonasEntity,Long> {
 
       @Transactional
       @Modifying
-      @Query("UPDATE PersonasEntity SET Estado = false WHERE idPersona =?1")
+      @Query("UPDATE PersonasEntity SET Estado = false WHERE id_persona =?1")
        public void changeState(Long id);
 
 
 
       @Transactional
       @Modifying
-      @Query("SELECT cli FROM PersonasEntity cli WHERE cli.idPersona NOT IN (SELECT reg.idPersona FROM RegistrosEntity reg)")
+      @Query("SELECT cli FROM PersonasEntity cli WHERE cli.id_persona NOT IN (SELECT reg.id_persona FROM RegistrosEntity reg)")
       public List<PersonasEntity> selectOneUni();
 }

@@ -18,22 +18,13 @@ public class DetallesController {
     @Autowired
     private IDetallesService iDetallesService;
 
-    @Autowired
-    private IRegistrosService iRegistrosService;
 
     @Autowired
     private IPagosService iPagosService;
 
-    @GetMapping("hola")
-    public String listarHola (Model model){
-        model.addAttribute("titulos","listado Detalles");
-        return "hola";
-    }
-
     @GetMapping("gestorTablas/detallesTabla")
     public String listarDetalles (Model model){
         model.addAttribute("Detalles",iDetallesService.findAll());
-        model.addAttribute("titulos","listado Detalles");
         return "gestorTablas/detallesTabla";
     }
 
@@ -41,7 +32,6 @@ public class DetallesController {
     public String crearDetalles(Model model){
         model.addAttribute("titulo","crear Detalle");
         model.addAttribute("Detalle",new DetallesEntity());
-        model.addAttribute("registros",iRegistrosService.findAll());
         model.addAttribute("pagos",iPagosService.findAll());
         return "crearDetalles";
 
@@ -82,7 +72,6 @@ public class DetallesController {
             @PathVariable(value = "id")Long id, Model model){
         model.addAttribute("titulo","editar Detalle");
         model.addAttribute("Detalle",iDetallesService.findOne(id));
-        model.addAttribute("registros",iRegistrosService.findAll());
         model.addAttribute("pagos",iPagosService.findAll());
         return "editarDetalles";
 
@@ -98,8 +87,8 @@ public class DetallesController {
                 iDetallesService.findOne(id);
         detalleExistente.setEstado(true);
         detalleExistente.setIdpago(detalles.getIdpago());
-        detalleExistente.setCostoAPagar(detalles.getCostoAPagar());//en esta parte se debe hacer la regla de tres para que al poner la medicion se calcule el costo a pagar//
-        detalleExistente.setMedicion(detalles.getMedicion());
+        detalleExistente.setMedicionActual(detalles.getMedicionActual());
+        detalleExistente.setCostoAPagar(detalles.getMedicionActual()*700);//en esta parte se debe hacer la regla de tres para que al poner la medicion se calcule el costo a pagar//
         detalleExistente.setMedicionPasada(detalles.getMedicionPasada());
         detalleExistente.setCostoPasado(detalles.getCostoPasado());
         detalleExistente.setDeudaTotal(detalles.getDeudaTotal());

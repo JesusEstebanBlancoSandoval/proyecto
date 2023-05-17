@@ -10,7 +10,35 @@
             </div>
         </nav>
 
-        <table th:replace="layouts/tablas :: detallesTabla"></table>
+        <table class="table table-ligth table-hover" th:fragment="detallesTabla">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">idDetalles</th>
+                <th scope="col">Costo a pagar</th>
+                <th scope="col">Medicion</th>
+                <th scope="col">Costo pasado</th>
+                <th scope="col">Medicion pasado</th>
+                <th scope="col">idPago</th>
+                <th scope="col">pago al dia</th>
+                <th scope="col">Deuda total</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr th:each="detalles: ${Detalles}" th:if="${detalles.estado} == true">
+                <td></td>
+                <td><input type="checkbox" th:text="${detalles.idDetalles}"></td>
+                <td th:text="${detalles.costoAPagar}"></td>
+                <td th:text="${detalles.medicionActual}"></td>
+                <td th:text="${detalles.costoPasado}"></td>
+                <td th:text="${detalles.medicionPasada}"></td>
+                <td th:text="${detalles.idpago.idPago}"></td>
+                <td th:text="${detalles.idpago.pagoAlDia}"></td>
+                <td th:text="${detalles.deudaTotal}"></td>
+            </tr>
+            </tbody>
+        </table>
+
 
         <nav class="navbar navbar-dark bg-dark fixed-bottom">
             <div class="container-fluid">
@@ -28,6 +56,11 @@
                         <a class="personas" href=personasTabla>Personas</a>
                         <a class="pagos" href=pagosTabla>Pagos</a>
                         <a class="registro" href=registrosTabla>Registro</a>
+                    </div>
+                    <div class="editorTabla">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Crear</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Editar</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Eliminar</button>
                     </div>
                 </div>
             </div>

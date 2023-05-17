@@ -11,7 +11,7 @@ public interface TelefonoDAO extends CrudRepository<TelefonoEntity,Long> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE TelefonoEntity SET Estado = false WHERE idTelefono =?1")
+    @Query("UPDATE TelefonoEntity SET Estado = false WHERE id_telefono =?1")
     public void changeState(Long id);
 
 

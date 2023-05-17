@@ -9,6 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface EmpresasDAO extends CrudRepository<EmpresasEntity, Long> {
      @Transactional
      @Modifying
-     @Query("UPDATE EmpresasEntity SET estado = false WHERE idEmpresa=?1")
+     @Query("UPDATE EmpresasEntity SET estado = false WHERE id_empresa=?1")
      public void changeState(Long id);
 }

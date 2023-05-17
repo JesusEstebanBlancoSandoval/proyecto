@@ -16,8 +16,8 @@ public class PersonasEntity implements Serializable {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name="idPersona")
-private Long idPersona;
+@Column(name="id_persona")
+private Long id_persona;
 
 
 @NotNull
@@ -32,16 +32,12 @@ private String Nombre;
 private String Apellido;
 
 @NotNull
+@Size(min = 10,max = 30)
 @Column(name = "Cedula")
-private Integer Cedula;
+private String Cedula;
 
 @Column(name = "Funcionario")
 private Boolean Funcionario;
-
-
-@JoinColumn(name= "idRegistro",referencedColumnName = "idRegistro")
-@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, optional = true)
-private RegistrosEntity idregistro;
 
 @NotNull
 @Column(name = "Estrato")
@@ -52,14 +48,14 @@ private Integer Estrato;
 private Integer PuntosDeAgua;
 
 
-    @JoinColumn(name= "idTelefono",referencedColumnName = "idTelefono")
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, optional = true)
-    private TelefonoEntity idTelefono;
+    @JoinColumn(name= "id_telefono",referencedColumnName = "id_telefono")
+    @OneToOne( fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, optional = true)
+    private TelefonoEntity id_telefono;
 
 
-    @JoinColumn(name = "idEmpresa",referencedColumnName = "idEmpresa")
+    @JoinColumn(name = "id_empresa",referencedColumnName = "id_empresa")
     @OneToOne( fetch = FetchType.LAZY ,cascade = CascadeType.REMOVE,optional = true)
-    private EmpresasEntity IdEmpresa;
+    private EmpresasEntity Id_empresa;
 
 
 
@@ -67,16 +63,12 @@ private Integer PuntosDeAgua;
 @Column(name = "Estado")
 private Boolean Estado;
 
-    @OneToOne (mappedBy = "idPersona")            //combinar la tabla funcionarios y la tabla clientes dejando los datos de funcionario como nulos//
-    private RegistrosEntity idRegistro;
-
-
-    public Long getIdPersona() {
-        return idPersona;
+    public Long getId_persona() {
+        return id_persona;
     }
 
-    public void setIdPersona(Long idPersona) {
-        this.idPersona = idPersona;
+    public void setId_persona(Long id_persona) {
+        this.id_persona = id_persona;
     }
 
     public String getNombre() {
@@ -119,11 +111,11 @@ private Boolean Estado;
         Estado = estado;
     }
 
-    public Integer getCedula() {
+    public String getCedula() {
         return Cedula;
     }
 
-    public void setCedula(Integer cedula) {
+    public void setCedula(String cedula) {
         Cedula = cedula;
     }
 
@@ -135,35 +127,29 @@ private Boolean Estado;
         Funcionario = funcionario;
     }
 
-    public RegistrosEntity getIdregistro() {
-        return idregistro;
+    public TelefonoEntity getId_telefono() {
+        return id_telefono;
     }
 
-    public void setIdregistro(RegistrosEntity idregistro) {
-        this.idregistro = idregistro;
-    }
-
-    public TelefonoEntity getIdTelefono() {
-        return idTelefono;
-    }
-
-    public void setIdTelefono(TelefonoEntity idTelefono) {
-        this.idTelefono = idTelefono;
+    public void setId_telefono(TelefonoEntity id_telefono) {
+        this.id_telefono = id_telefono;
     }
 
     public EmpresasEntity getIdEmpresa() {
-        return IdEmpresa;
+        return Id_empresa;
     }
 
     public void setIdEmpresa(EmpresasEntity idEmpresa) {
-        IdEmpresa = idEmpresa;
+        Id_empresa = idEmpresa;
     }
 
-    public RegistrosEntity getIdRegistro() {
-        return idRegistro;
+    public Long getid_persona() {
+        return id_persona;
     }
 
-    public void setIdRegistro(RegistrosEntity idRegistro) {
-        this.idRegistro = idRegistro;
+    public void setid_persona(Long id_Persona) {
+        this.id_persona = id_Persona;
     }
+
+
 }

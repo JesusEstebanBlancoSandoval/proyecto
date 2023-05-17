@@ -24,7 +24,7 @@ public class RegistrosController {
 
     @GetMapping("gestorTablas/registrosTabla")
     public String listarRegistros(Model model){
-        model.addAttribute("registros",iRegistrosService.findAll());
+        model.addAttribute("registrosTabla",iRegistrosService.findAll());
         model.addAttribute("titulos","Listado Registros");
         return "gestorTablas/registrosTabla";
     }
@@ -85,10 +85,6 @@ public class RegistrosController {
         RegistrosEntity registroExistente =
                 iRegistrosService.findOne(id);
         registroExistente.setEstado(true);
-        registroExistente.setGastoPasado(registro.getGastoPasado());
-        registroExistente.setMedicionPasada(registro.getMedicionPasada());
-        registroExistente.setGastoActual(registro.getGastoActual());
-        registroExistente.setGastoActual(registro.getMedicionActual());
         registroExistente.setFechaMedicion(registro.getFechaMedicion());
         registroExistente.setIdPersona(registro.getIdPersona());
         iRegistrosService.updateRegistro(registroExistente);

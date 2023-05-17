@@ -10,7 +10,27 @@
             </div>
         </nav>
 
-        <table th:replace="layouts/tablas :: registrosTabla"></table>
+        <table class="table table-ligth table-hover" th:fragment="registrosTabla">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">idRegistro</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Fecha medicion</th>
+                <th scope="col">idPersona</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr th:each="registros:${registrosTabla}" th:if="${registros.estado} == true">
+                <td></td>
+                <td><input type="checkbox" th:text="${registros.idRegistro}"></td>
+                <td th:text="${registros.estado}"></td>
+                <td th:text="${registros.fechaMedicion}"></td>
+                <td th:text="${registros.idPersona.id_persona}"></td>
+            </tr>
+
+            </tbody>
+        </table>
 
         <nav class="navbar navbar-dark bg-dark fixed-bottom">
             <div class="container-fluid">

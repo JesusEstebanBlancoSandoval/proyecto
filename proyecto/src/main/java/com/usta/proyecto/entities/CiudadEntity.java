@@ -13,8 +13,8 @@ public class CiudadEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCiudades")
-    private Long idCiudades;
+    @Column(name = "id_ciudades")
+    private Long id_ciudades;
 
     @NotNull
     @Size(min = 5 , max = 30)
@@ -28,11 +28,11 @@ public class CiudadEntity implements Serializable {
 
 
     public Long getIdCiudades() {
-        return idCiudades;
+        return id_ciudades;
     }
 
     public void setIdCiudades(Long idCiudades) {
-        this.idCiudades = idCiudades;
+        this.id_ciudades = id_ciudades;
     }
 
     public String getNombre() {

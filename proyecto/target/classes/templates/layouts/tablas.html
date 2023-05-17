@@ -1,26 +1,3 @@
-<table class="table table-ligth table-hover" th:fragment="detallesTabla">
-    <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col">idDetalles</th>
-            <th scope="col">Costo a pagar</th>
-            <th scope="col">Medicion</th>
-            <th scope="col">Medicion pasado</th>
-            <th scope="col">Deuda total</th>
-        </tr>
-    </thead>
-    <tbody class="table-group-divider">
-        <tr th:each="detalles: ${Detalles}" th:if="${detalles.estado} == true">
-            <td><input type="checkbox"> </td>
-            <td th:text="${detalles.idDetalles}"></td>
-            <td th:text="${detalles.idPago.PagoAlDia}"></td>
-            <td th:text="${detalles.idRegistro.MedicionActual}"></td>
-            <td th:text="${detalles.idRegistro.MedicionPasada}"></td>
-            <td th:text="${detalles.DeudaTotal}"></td>
-        </tr>
-    </tbody>
-</table>
-
 <table class="table table-ligth table-hover" th:fragment="personasTabla">
     <thead>
         <tr>
@@ -46,6 +23,32 @@
     </tbody>
 </table>
 
+<table class="table table-ligth table-hover" th:fragment="detallesTabla">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">idDetalles</th>
+        <th scope="col">Costo a pagar</th>
+        <th scope="col">Costo pasado</th>
+        <th scope="col">idPago</th>
+        <th scope="col">Medicion</th>
+        <th scope="col">Medicion pasado</th>
+        <th scope="col">Deuda total</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    <tr th:each="detalles: ${Detalles}" th:if="${detalles.estado} == true">
+        <td><input type="checkbox" th:text="${detalles.idDetalles}"></td>
+        <td th:text="${detalles.costoAPagar}"></td>
+        <td th:text="${detalles.costoPasado}"></td>
+        <td th:text="${detalles.idpago}"></td>
+        <td th:text="${detalles.medicionActual}"></td>
+        <td th:text="${detalles.medicionPasada}"></td>
+        <td th:text="${detalles.deudaTotal}"></td>
+    </tr>
+    </tbody>
+</table>
+
 <table class="table table-ligth table-hover" th:fragment="pagosTabla">
     <thead>
         <tr>
@@ -53,7 +56,6 @@
             <th scope="col">idPago</th>
             <th scope="col">idRegistro</th>
             <th scope="col">Pago al dia</th>
-            <th scope="col">idDetalles</th>
         </tr>
     </thead>
     <tbody class="table-group-divider">

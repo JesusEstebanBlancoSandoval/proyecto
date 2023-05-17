@@ -15,8 +15,8 @@ public class TelefonoEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idTelefono")
-    private Long idTelefono;
+    @Column(name = "id_telefono")
+    private Long id_telefono;
 
     @NotNull
     @Size(min = 10 , max = 30)
@@ -24,24 +24,33 @@ public class TelefonoEntity implements Serializable {
     private String Tipo;
 
     @NotNull
+    @Size(min = 10 , max = 30)
     @Column(name="Numero")
-    private Integer Numero;
+    private String Numero;
 
     @NotNull
     @Column(name = "Estado")
     private Boolean Estado;
 
 
-    @OneToOne(mappedBy = "idTelefono")
-    private PersonasEntity idPersona;
+   // @OneToOne(mappedBy = "id_telefono")
+    //private PersonasEntity id_Persona;
 
-    public Long getIdTelefono() {
-        return idTelefono;
+    public Long getId_telefono() {
+        return id_telefono;
     }
 
-    public void setIdTelefono(Long idTelefono) {
-        this.idTelefono = idTelefono;
+    public void setId_telefono(Long id_telefono) {
+        this.id_telefono = id_telefono;
     }
+
+    //public PersonasEntity getIdPersona() {
+    //    return id_Persona;
+    //}
+
+    //public void setIdPersona(PersonasEntity idPersona) {
+    //    this.id_Persona = idPersona;
+    //}
 
     public String getTipo() {
         return Tipo;
@@ -51,11 +60,11 @@ public class TelefonoEntity implements Serializable {
         Tipo = tipo;
     }
 
-    public Integer getNumero() {
+    public String getNumero() {
         return Numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(String numero) {
         Numero = numero;
     }
 

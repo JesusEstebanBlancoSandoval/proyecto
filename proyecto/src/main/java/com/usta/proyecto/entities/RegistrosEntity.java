@@ -16,31 +16,8 @@ public class RegistrosEntity  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="idRegistro")
-    private Long idRegistro;
-
-
-    @NotNull
-    @Column(name="GastoPasado")
-    private Integer GastoPasado;
-
-
-    @NotNull
-    @Column(name="MedicionPasada")
-    private Integer MedicionPasada;
-
-
-
-    @NotNull
-    @Column(name = "GastoActual")
-    private Integer GastoActual;
-
-
-
-    @NotNull
-    @Column(name = "MedicionActual")
-    private Integer MedicionActual;
-
+    @Column(name ="id_registro")
+    private Long id_registro;
 
 
     @NotNull
@@ -56,57 +33,22 @@ public class RegistrosEntity  implements Serializable {
 
 
     //espacio para conexion con otro entity//
-    @JoinColumn(name = "idPersona" , referencedColumnName = "idPersona")
+    @JoinColumn(name = "id_persona" , referencedColumnName = "id_persona")
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
-    private PersonasEntity idPersona;
-
-
-    @OneToOne (mappedBy = "idRegistro")  //comparte el id registro a la tabla pagos//
-    private PagosEntity idPago;
+    private PersonasEntity id_persona;
 
 
 
     //espacio para conexion con otro entity//
 
     public Long getIdRegistro() {
-        return idRegistro;
+        return id_registro;
     }
 
     public void setIdRegistro(Long idRegistro) {
-        this.idRegistro = idRegistro;
+        this.id_registro = idRegistro;
     }
 
-    public Integer getGastoPasado() {
-        return GastoPasado;
-    }
-
-    public void setGastoPasado(Integer gastoPasado) {
-        GastoPasado = gastoPasado;
-    }
-
-    public Integer getMedicionPasada() {
-        return MedicionPasada;
-    }
-
-    public void setMedicionPasada(Integer medicionPasada) {
-        MedicionPasada = medicionPasada;
-    }
-
-    public Integer getGastoActual() {
-        return GastoActual;
-    }
-
-    public void setGastoActual(Integer gastoActual) {
-        GastoActual = gastoActual;
-    }
-
-    public Integer getMedicionActual() {
-        return MedicionActual;
-    }
-
-    public void setMedicionActual(Integer medicionActual) {
-        MedicionActual = medicionActual;
-    }
 
     public Date getFechaMedicion() {
         return FechaMedicion;
@@ -125,10 +67,10 @@ public class RegistrosEntity  implements Serializable {
     }
 
     public PersonasEntity getIdPersona() {
-        return idPersona;
+        return id_persona;
     }
 
     public void setIdPersona(PersonasEntity idPersona) {
-        this.idPersona = idPersona;
+        this.id_persona = idPersona;
     }
 }

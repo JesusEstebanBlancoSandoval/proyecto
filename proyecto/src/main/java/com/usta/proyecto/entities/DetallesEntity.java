@@ -12,28 +12,30 @@ import java.io.Serializable;
 
 public class DetallesEntity implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idDetalles")
-    private Long idDetalles;
+    @Column(name = "id_detalles")
+    private Long id_detalles;
 
-    @JoinColumn(name = "idPago",referencedColumnName = "idPago")
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
-    private PagosEntity idpago;
+    @JoinColumn(name = "id_Pago", referencedColumnName = "id_Pago")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, optional = true)
+    private PagosEntity id_Pago;
+
 
     @NotNull
-    @Column(name = "CostoAPagar")    //que contabilice la medicion y genere un costo a pagar ej:20000 por una medicion de 1000 mts^3//
+    @Column(name = "MedicionActual")
+    private Integer MedicionActual;
+
+    @NotNull
+    @Column(name = "CostoAPagar")
+    //que contabilice la medicion y genere un costo a pagar ej:20000 por una medicion de 1000 mts^3//
     private Integer CostoAPagar;
 
-    @JoinColumn(name = "medicion", referencedColumnName = "MedicionActual")
-    @OneToOne( fetch =FetchType.LAZY ,cascade = CascadeType.REMOVE, optional = true)   //aca se debe mostrar la medicion registrada en registros//
-    private RegistrosEntity medicion;
-
-    @JoinColumn(name = "medicionPasada",referencedColumnName = "medicionPasada")
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
-    private RegistrosEntity medicionPasada;
+    @NotNull
+    @Column(name="MedicionPasada")
+    private Integer MedicionPasada;
 
 
     @NotNull
@@ -50,11 +52,19 @@ public class DetallesEntity implements Serializable {
 
 
     public Long getIdDetalles() {
-        return idDetalles;
+        return id_detalles;
     }
 
     public void setIdDetalles(Long idDetalles) {
-        this.idDetalles = idDetalles;
+        this.id_detalles = idDetalles;
+    }
+
+    public Integer getMedicionPasada() {
+        return MedicionPasada;
+    }
+
+    public void setMedicionPasada(Integer medicionPasada) {
+        MedicionPasada = medicionPasada;
     }
 
     public Integer getCostoAPagar() {
@@ -81,21 +91,14 @@ public class DetallesEntity implements Serializable {
         DeudaTotal = deudaTotal;
     }
 
-    public RegistrosEntity getMedicion() {
-        return medicion;
+    public Integer getMedicionActual() {
+        return MedicionActual;
     }
 
-    public void setMedicion(RegistrosEntity medicion) {
-        this.medicion = medicion;
+    public void setMedicionActual(Integer medicionActual) {
+        MedicionActual = medicionActual;
     }
 
-    public RegistrosEntity getMedicionPasada() {
-        return medicionPasada;
-    }
-
-    public void setMedicionPasada(RegistrosEntity medicionPasada) {
-        this.medicionPasada = medicionPasada;
-    }
 
     public Boolean getEstado() {
         return estado;
@@ -106,10 +109,10 @@ public class DetallesEntity implements Serializable {
     }
 
     public PagosEntity getIdpago() {
-        return idpago;
+        return id_Pago;
     }
 
     public void setIdpago(PagosEntity idpago) {
-        this.idpago = idpago;
+        this.id_Pago = idpago;
     }
 }

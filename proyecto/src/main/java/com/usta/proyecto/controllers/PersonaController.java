@@ -32,8 +32,7 @@ public class PersonaController {
 
     @GetMapping("gestorTablas/personasTabla")
     public String ListarSeccionales (Model model){
-        model.addAttribute("personas",iPersonasService.findAll());
-        model.addAttribute("titulos","listado Personas");
+        model.addAttribute("personasTabla",iPersonasService.findAll());
         return "gestorTablas/personasTabla";
     }
 
@@ -103,10 +102,9 @@ public class PersonaController {
         personaExistente.setApellido(personas.getApellido());
         personaExistente.setCedula(personas.getCedula());
         personaExistente.setFuncionario(personas.getFuncionario());
-        personaExistente.setIdRegistro(personas.getIdRegistro());
         personaExistente.setEstrato(personas.getEstrato());
         personaExistente.setPuntosDeAgua(personas.getPuntosDeAgua());
-        personaExistente.setIdTelefono(personas.getIdTelefono());
+        personaExistente.setId_telefono(personas.getId_telefono());
         personaExistente.setIdEmpresa(personas.getIdEmpresa());
         return "redirect:/listarPersonas";
     }

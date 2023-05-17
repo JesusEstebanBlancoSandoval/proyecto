@@ -14,19 +14,17 @@ public class PagosEntity implements Serializable {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name = "idPago")
-private Long idPago;
-@JoinColumn(name = "idRegistro",referencedColumnName = "idRegistro")
+@Column(name = "id_pago")
+private Long id_pago;
+@JoinColumn(name = "id_Registro",referencedColumnName = "id_Registro")
 @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
-private RegistrosEntity idRegistro;
+private RegistrosEntity id_Registro;
 
 @NotNull
-@Column(name = "PagoAlDia")   //si es false que lo mande a la tabla de deudores//
+@Column(name = "PagoAlDia")
 private Boolean PagoAlDia;
 
-@JoinColumn(name = "idDetalles",referencedColumnName = "idDetalles")
-@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,optional = true)
-    private DetallesEntity idDetalles;
+
 
 @NotNull
 @Column(name = "estado")
@@ -34,11 +32,11 @@ private Boolean estado;
 
 
     public Long getIdPago() {
-        return idPago;
+        return id_pago;
     }
 
     public void setIdPago(Long idPago) {
-        this.idPago = idPago;
+        this.id_pago = idPago;
     }
 
     public Boolean getPagoAlDia() {
@@ -50,20 +48,13 @@ private Boolean estado;
     }
 
     public RegistrosEntity getIdRegistro() {
-        return idRegistro;
+        return id_Registro;
     }
 
     public void setIdRegistro(RegistrosEntity idRegistro) {
-        this.idRegistro = idRegistro;
+        this.id_Registro = idRegistro;
     }
 
-    public DetallesEntity getIdDetalles() {
-        return idDetalles;
-    }
-
-    public void setIdDetalles(DetallesEntity idDetalles) {
-        this.idDetalles = idDetalles;
-    }
 
     public Boolean getEstado() {
         return estado;

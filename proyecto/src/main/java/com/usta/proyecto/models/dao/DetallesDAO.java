@@ -8,9 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface DetallesDAO  extends CrudRepository<DetallesEntity,Long> {
 
-
     @Transactional
     @Modifying
-    @Query("UPDATE DetallesEntity SET estado = false WHERE idDetalles=?1")
+    @Query("UPDATE DetallesEntity SET estado = false WHERE id_detalles=?1")
     public void changeState(Long id);
 }

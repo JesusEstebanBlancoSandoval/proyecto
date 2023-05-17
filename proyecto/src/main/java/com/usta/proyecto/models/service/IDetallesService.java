@@ -13,8 +13,7 @@ public interface IDetallesService {
     public void remove(Long id);
 
     public DetallesEntity updateDetalles(DetallesEntity detalles);
-
-
+    
     public void changeState(Long id);
 
     public DetallesEntity findOne(Long id);

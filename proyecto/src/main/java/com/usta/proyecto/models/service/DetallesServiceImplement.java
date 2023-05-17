@@ -26,7 +26,6 @@ public class DetallesServiceImplement implements IDetallesService{
     @Transactional
     public void save(DetallesEntity detalles){
         DetallesDAO.save(detalles);
-
     }
 
 

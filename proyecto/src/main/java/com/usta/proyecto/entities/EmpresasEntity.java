@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name ="empresas")
 
 public class EmpresasEntity implements Serializable {
     private static final long serialVersionUID=1L;
@@ -15,8 +15,8 @@ public class EmpresasEntity implements Serializable {
 
 @Id
 @GeneratedValue (strategy = GenerationType.IDENTITY)
-@Column(name = "idEmpresa")
-private Long idEmpresa;
+@Column(name = "id_empresa")
+private Long id_empresa;
 
 
 @NotNull
@@ -34,16 +34,16 @@ private String Nombre;
     private Boolean estado;
 
     @NotNull
-    @JoinColumn(name = "idciudad", referencedColumnName = "idCiudades")
+    @JoinColumn(name = "id_ciudad", referencedColumnName = "id_ciudades")
     @ManyToOne(fetch = FetchType.LAZY)
-    private CiudadEntity idciudad;
+    private CiudadEntity id_ciudad;
 
     public Long getIdEmpresa() {
-        return idEmpresa;
+        return id_empresa;
     }
 
     public void setIdEmpresa(Long idEmpresa) {
-        this.idEmpresa = idEmpresa;
+        this.id_empresa = id_empresa;
     }
 
     public String getNombre() {
@@ -71,10 +71,10 @@ private String Nombre;
     }
 
     public CiudadEntity getIdciudad() {
-        return idciudad;
+        return id_ciudad;
     }
 
     public void setIdciudad(CiudadEntity idciudad) {
-        this.idciudad = idciudad;
+        this.id_ciudad = idciudad;
     }
 }

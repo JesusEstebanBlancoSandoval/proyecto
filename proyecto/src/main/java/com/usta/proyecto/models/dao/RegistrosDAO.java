@@ -10,6 +10,6 @@ public interface RegistrosDAO extends CrudRepository<RegistrosEntity,Long> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE RegistrosEntity SET Estado = false WHERE idPersona =?1")
+    @Query("UPDATE RegistrosEntity SET Estado = false WHERE id_registro =?1")
     public void changeState(Long id);
 }

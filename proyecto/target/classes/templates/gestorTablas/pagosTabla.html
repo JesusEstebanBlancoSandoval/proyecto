@@ -10,7 +10,25 @@
             </div>
         </nav>
 
-        <table th:replace="layouts/tablas :: pagosTabla"></table>
+        <table class="table table-ligth table-hover" th:fragment="pagosTabla">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">idPago</th>
+                <th scope="col">idRegistro</th>
+                <th scope="col">Pago al dia</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr  th:each="pagos: ${pagosTabla}" th:if="${pagos.estado} == true" >
+                <td></td>
+                <td><input type="checkbox" th:text="${pagos.idPago}"></td>
+                <td th:text="${pagos.idRegistro.idRegistro}"></td>
+                <td th:text="${pagos.pagoAlDia}"></td>
+
+            </tr>
+            </tbody>
+        </table>
 
         <div th:replace="layouts/tablas :: pagoCrear"></div>
         <div th:replace="layouts/tablas :: eliminar"></div>
