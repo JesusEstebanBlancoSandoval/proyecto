@@ -31,6 +31,11 @@ public class CiudadController {
         model.addAttribute("Ciudad",new CiudadEntity());
        return "crearCiudad";
     }
+    @GetMapping("gestorTablas/index")
+    public String MostrarIndex(Model model){
+        return "gestorTablas/index";
+
+    }
 
     @PostMapping(value = "crearCiudad")
     public String guardarCiudad(@Valid CiudadEntity ciudad, BindingResult result, SessionStatus status){
